@@ -1,0 +1,60 @@
+[tool.poetry]
+name = "kustomize-file"
+version = "v0.0.1"
+description = "Take a single kubernetes manifest containing multiple resources and split it to many files with a kustomization file"
+authors = [ "Martin Højland <martin@goautonomous.io>" ]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+click = "^8.1.3"
+pyyaml = "^6.0"
+
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^2.16.0"
+ipykernel = "^5.3.4"
+ipywidgets = "^7.6.3"
+jupyterlab = "^2.2.9"
+mypy = "^0.770"
+isort = "^4.3.21"
+autoflake = "^1.3.1"
+flake8 = "^3.7.9"
+pytest-black = "^0.3.10"
+
+[tool.poetry.dev-dependencies.black]
+version = "^22.6"
+allow-prereleases = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--black"
+testpaths = "tests"
+
+[tool.black]
+line-length = 135
+target-version = [ "py38" ]
+include = "\\.pyi?$"
+exclude = """
+/(
+    \\.eggs         # exclude a few common directories in the
+  | \\.git          # root of the project
+  | \\.mypy_cache
+  | \\.venv
+  | \\.vscode
+  | _build
+  | buck-out
+  | build
+  | dist
+  | tmp
+)/
+"""
+
+
+[tool.isort]
+multi_line_output = 3
+line_length = 88
+include_trailing_comma = true
+
+[build-system]
+requires = [ "poetry>=1.1.8" ]
+build-backend = "poetry.masonry.api"

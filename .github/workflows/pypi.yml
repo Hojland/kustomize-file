@@ -1,0 +1,23 @@
+name: pypi-release
+
+on:
+  release:
+    types:
+      - published
+
+env:
+  APPLICATION_NAME: kustomize_file
+
+jobs:
+  pypi_release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+        with:
+          fetch-depth: "0"
+      - name: Publish to PyPI
+        env:
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          poetry config pypi-token.pypi $PYPI_TOKEN
+          poetry publish --build
