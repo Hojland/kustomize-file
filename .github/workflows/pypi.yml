@@ -16,10 +16,24 @@ jobs:
       - uses: actions/checkout@main
         with:
           fetch-depth: "0"
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+      - name: Install Poetry
+        run: |
+          python get-poetry.py --preview -y
+      - name: Install dependencies
+        run: |
+          source $HOME/.poetry/env
+          poetry install --no-dev
+      - name: Build project for distribution
+        run: |
+          source $HOME/.poetry/env
+          poetry run poetry build
       - name: Publish to PyPI
         env:
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
         run: |
-          pip install poetry
-          poetry config pypi-token.pypi $PYPI_TOKEN
-          poetry publish --build
+          source $HOME/.poetry/env
+          poetry run poetry publish
