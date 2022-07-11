@@ -1,0 +1,65 @@
+name: ci
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  APPLICATION_NAME: kustomize-file
+
+jobs:
+  lint_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup Python environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8.8"
+          architecture: "x64"
+      - name: Install requirements
+        run: |
+          pip install black isort
+      #          pip install poetry
+      #          poetry config virtualenvs.create false
+      #          poetry install # disable until we
+      - name: Run linters
+        uses: wearerequired/lint-action@v1
+        with:
+          black: true
+#      - name: Run linters
+#        uses: github/super-linter/slim@v4
+#        env:
+#          DEFAULT_BRANCH: main
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          VALIDATE_PYTHON: true
+#          PYTHON_BLACK_CONFIG_FILE: pyproject.toml
+#          PYTHON_ISORT_CONFIG_FILE: pyproject.toml
+#          VALIDATE_PYTHON_BLACK: true
+#          VALIDATE_PYTHON_ISORT: true
+#          LINTER_RULES_PATH: .
+#       - name: Run tests
+#         run: |
+#           cd src
+#           poetry run python -m pytest .. | tee output.log
+#           export TEST_STATUS="${PIPESTATUS[0]}"
+#           echo "TEST_STATUS=${TEST_STATUS}" >> $GITHUB_ENV
+#           echo "TEST_OUTPUT<<EOF" >> $GITHUB_ENV
+#           tail -n3 output.log >> $GITHUB_ENV
+#           echo "EOF" >> $GITHUB_ENV
+#         env:
+#           PYTHONPATH: "src"
+#       - name: comment status
+#         uses: mshick/add-pr-comment@v1
+#         with:
+#           repo-token: ${{ secrets.GITHUB_TOKEN }}
+#           allow-repeats: true
+#           message: |
+#             Test status is ${{ env.TEST_STATUS }}:
+#             ```
+#             ${{ env.TEST_OUTPUT }}
+#             ```
+#       - name: set job status
+#         run: exit ${{ env.TEST_STATUS }}
