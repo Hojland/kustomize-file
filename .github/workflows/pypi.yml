@@ -27,15 +27,12 @@ jobs:
           ln -s /opt/poetry/bin/poetry
       - name: Install dependencies
         run: |
-          source $HOME/.poetry/env
           poetry install --no-dev
       - name: Build project for distribution
         run: |
-          source $HOME/.poetry/env
           poetry run poetry build
       - name: Publish to PyPI
         env:
           POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
         run: |
-          source $HOME/.poetry/env
           poetry run poetry publish
