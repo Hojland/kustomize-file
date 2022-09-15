@@ -24,6 +24,9 @@ authors = [ "Martin Højland <martin@goautonomous.io>" ]
     version = "^22.6"
     allow-prereleases = true
 
+  [tool.poetry.scripts]
+  kustomize-file = "kustomize_file.main:app"
+
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "--black"
@@ -56,6 +59,3 @@ include_trailing_comma = true
 [build-system]
 requires = [ "poetry>=1.1.8" ]
 build-backend = "poetry.masonry.api"
-
-[tool.poetry.scripts]
-kustomize-file = "kustomize_file.main:app"

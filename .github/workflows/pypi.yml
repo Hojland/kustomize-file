@@ -24,7 +24,7 @@ jobs:
         run: |
           curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python3 -
           cd /usr/local/bin
-          ln -s /opt/poetry/bin/poetry
+          ln -s /etc/poetry/bin/poetry
       - name: Install dependencies
         run: |
           poetry install --no-dev
