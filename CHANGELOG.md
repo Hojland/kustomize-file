@@ -1,6 +1,18 @@
 
-<a name="0.0.3"></a>
-## [0.0.3](http://github.com/go-Autonomous/kustomize-file/compare/v0.0.2...0.0.3) (2022-07-11)
+<a name="0.0.4"></a>
+## [0.0.4](http://github.com/go-Autonomous/kustomize-file/compare/v0.0.3...0.0.4) (2022-09-15)
+
+### Bug Fixes
+
+* gha pypi poetry install
+
+### Pull Requests
+
+* Merge pull request [#4](http://github.com/go-Autonomous/kustomize-file/issues/4) from Hojland/fix/upd
+
+
+<a name="v0.0.3"></a>
+## [v0.0.3](http://github.com/go-Autonomous/kustomize-file/compare/v0.0.2...v0.0.3) (2022-07-11)
 
 ### Pull Requests
 
