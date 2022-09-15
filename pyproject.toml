@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "kustomize-file"
-version = "v0.0.2"
+version = "v0.0.4"
 description = "Take a single kubernetes manifest containing multiple resources and split it to many files with a kustomization file"
 authors = [ "Martin Højland <martin@goautonomous.io>" ]
 
@@ -56,3 +56,6 @@ include_trailing_comma = true
 [build-system]
 requires = [ "poetry>=1.1.8" ]
 build-backend = "poetry.masonry.api"
+
+[tool.poetry.scripts]
+kustomize-file = "kustomize_file.main:app"
