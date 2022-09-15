@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "kustomize-file"
-version = "v0.0.4"
+version = "v0.0.5"
 description = "Take a single kubernetes manifest containing multiple resources and split it to many files with a kustomization file"
 authors = [ "Martin Højland <martin@goautonomous.io>" ]
 
