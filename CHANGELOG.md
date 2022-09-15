@@ -1,6 +1,22 @@
 
-<a name="0.0.1"></a>
-## 0.0.1 (2022-07-11)
+<a name="0.0.3"></a>
+## [0.0.3](http://github.com/go-Autonomous/kustomize-file/compare/v0.0.2...0.0.3) (2022-07-11)
+
+### Pull Requests
+
+* Merge pull request [#3](http://github.com/go-Autonomous/kustomize-file/issues/3) from Hojland/patch/bump
+
+
+<a name="v0.0.2"></a>
+## [v0.0.2](http://github.com/go-Autonomous/kustomize-file/compare/v0.0.1...v0.0.2) (2022-07-11)
+
+### Pull Requests
+
+* Merge pull request [#2](http://github.com/go-Autonomous/kustomize-file/issues/2) from Hojland/patch/kustomize_file
+
+
+<a name="v0.0.1"></a>
+## v0.0.1 (2022-07-11)
 
 ### Pull Requests
 
